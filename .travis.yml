@@ -36,6 +36,8 @@ matrix:
     - env: 
       - dev=TRUE
       - deployment=TRUE  
+  allow_failures:
+    - env: dev=TRUE deployment=FALSE 
 
 install:
   - Rscript -e 'install.packages("remotes")'
@@ -47,8 +49,6 @@ script:
   - git clone --depth=1 https://github.com/muschellij2/${pkg}
   - cd ${pkg}
   - str="neuroc.deps::use_neuroc_template(deployment = ${deployment}, dev = ${dev})"; Rscript -e "${str}"
-
-
 
 notifications:
   email:
