@@ -38,10 +38,7 @@ script:
   - export pkg=stapler
   - git clone --depth=1 https://github.com/muschellij2/${pkg}
   - cd ${pkg}
-  - Rscript -e ""
-
-
-
+  - str="neuroc.deps::use_neuroc_template(deployment = ${deployment}, dev = ${dev})"; Rscript -e "${str}"
 
 
 
@@ -49,14 +46,3 @@ notifications:
   email:
     on_success: change
     on_failure: change
-
-deploy:
-  provider: releases
-  skip_cleanup: true
-  api_key:
-    secure: QcxDyI46mrawczWTACC+7l1O40fDpZYsdQ5PGoeTYMkWNl2SfTKRf0acVJqhFsw70JPkmOzgSSB0o0A/oV07PHhU2J7CgJ3132n2LnmAwIv5KbSFfw0O/hCDOS86UXqv3Cg9OptxB3IXliewavIlopV/GFKuY1q/osAkrHXPUr2rMVPOQtHnVuujnSErQZ/jRXRXU4CYZhr4x5tPg0HQnfRDpNRbbSNIPJuo95MA0p1VojdfkLW1eSeBCwuHNSj48DyqCz9miYIPU/p3AUHcuP66Kz+Lll462ChiH1IAvSJ5yPIXSPH63WZmHynm9qPxqoX0LYCynbujuZBGNir+bP5KJeJbSPL6pa5t4pehEDB+07TjUZ0I7tT9kR3hVMrzZanu+H/bzAv1PG5adAz2g4zncOEwJF/7hQmBxvrbRmaSRdxC0UQ40Ym7HAkIrFpr6+eWEQMzRocnaCPU+xYoot4Y2LIb6RLSsGZE7a66m2aFlNWqMU2DdjkVaPmzU+nPPTCfArGdrCTDyuO4y0Y0vYUzTWWjoisHWu9VfBUyZ+3pG1t9NZZ0sddRYAfMvXJU+o01UP5dCJko96/8nZof3HwF4f/O22TDGIuBnSuxbbgD6o6uRQos2RTvfa4FepjScMrGXVKJMSdlhnceu9OVf2guxMRVAXz37HkO2f4dI6s=
-  file_glob: true
-  file: neuroc.deps*.t*gz
-  on:
-    tags: true
-    repo: muschellij2/neuroc.deps
