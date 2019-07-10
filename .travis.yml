@@ -41,6 +41,7 @@ matrix:
 install:
   - Rscript -e 'install.packages("remotes")'
   - Rscript -e 'remotes::install_github("muschellij2/neuroc.deps")'
+  - Rscript -e 'install.packages("base64enc")'
 
 script:
   - export pkg=stapler
