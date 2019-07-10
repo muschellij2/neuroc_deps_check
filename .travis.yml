@@ -22,13 +22,17 @@ before_install:
   - export OSLER_DEVEL_RELEASE_TRAVIS_KEY=asdf
   - export OSLER_DEVEL_RELEASE_APPVEYOR_KEY=asdf    
 
-env:
+env: 
   - user=neuroconductor
-  - user=osler
-  - dev=FALSE
-  - dev=TRUE
-  - deployment=FALSE
-  - deployment=TRUE
+
+matrix:
+  include:
+    - env: 
+      - dev=FALSE
+      - deployment=FALSE
+    - env: 
+      - dev=TRUE
+      - deployment=TRUE  
 
 
 install:
