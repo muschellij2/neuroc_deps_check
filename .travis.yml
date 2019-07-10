@@ -32,6 +32,9 @@ matrix:
       - deployment=FALSE
     - env: 
       - dev=TRUE
+      - deployment=FALSE      
+    - env: 
+      - dev=TRUE
       - deployment=TRUE  
 
 
