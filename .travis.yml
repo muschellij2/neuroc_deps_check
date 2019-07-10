@@ -37,7 +37,9 @@ matrix:
       - dev=TRUE
       - deployment=TRUE  
   allow_failures:
-    - env: dev=TRUE deployment=FALSE 
+    - env: 
+      - dev=TRUE 
+      - deployment=FALSE 
 
 install:
   - Rscript -e 'install.packages("remotes")'
