@@ -38,8 +38,11 @@ matrix:
       - deployment=TRUE  
 
 
-script:
+install:
+  - Rscript -e 'install.packages("remotes")'
   - Rscript -e 'remotes::install_github("muschellij2/neuroc.deps")'
+
+script:
   - export pkg=stapler
   - git clone --depth=1 https://github.com/muschellij2/${pkg}
   - cd ${pkg}
